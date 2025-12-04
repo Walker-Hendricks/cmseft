@@ -1,0 +1,6 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2023-01-17 15:51:44
+# Command line arguments: ../../../../make_reweight_card.py --couplings 2 ctGRe 1 ctGIm 1 ctWRe 1 ctWIm 1 ctBRe 1 ctBIm 1 cHtbRe 1 cHtbIm 1 cHt 1 --filename TT01j_MS_reweight_card.dat
+# Polynomial order: 2
+change rwgt_dir rwgt
+
+launch --rwgt_name=dummy
