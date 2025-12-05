@@ -5,5 +5,5 @@ You can also delete this README file. You will need to edit this depending on wh
 From the home directory, run this:
 ```bash
 rm default/README.md
-mv default /generation/genproductions/bin/MadGraph5_aMCatNLO/addons/models/SMEFTsim_topU3l_MwScheme_UFO/default
+mv default generation/genproductions/bin/MadGraph5_aMCatNLO/addons/models/SMEFTsim_topU3l_MwScheme_UFO/default
 ```
