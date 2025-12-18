@@ -57,6 +57,11 @@ if [[ -z $DEFAULTDIR ]]; then
 	exit 1
 fi
 
+if [ ! -d "$DEFAULTDIR" ]; then		# If the default directory doesn't exist
+	echo "Error: your default directory does not exist! Please create it first."
+	exit 1
+fi
+
 if [[ -z $OUTDIR ]]; then
 	echo "Error: no -o argument passed."
 	show_help
