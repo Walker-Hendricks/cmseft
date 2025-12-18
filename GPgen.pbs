@@ -6,10 +6,6 @@
 # Turn the colon back into a comma so the script logic works
 WC_VAL=${WC_VAL//:/,}
 
-# File locations
-BASE_DIR="/cms/data/whendric/ttX/cmseft/generation/genproductions/bin/MadGraph5_aMCatNLO/"
-EDIT_DIR="${BASE_DIR}addons/models/SMEFTsim_topU3l_MwScheme_UFO"
-
 # Replace '/' and ',' with underscores to avoid breaking directory names
 SAFE_WC=${WC//\//_}       # e.g., "ctB/ctW" -> "ctB_ctW"
 SAFE_VAL=${WC_VAL//,/_}   # e.g., "2,-2"    -> "2_-2"
@@ -18,11 +14,18 @@ PREFIX="${SAFE_WC}_${SAFE_VAL}_ttZ"
 
 # Create new starting directory
 # !! CHANGE HERE FOR DIFFERENT PROCESSES !!
+cd $DEFAULTDIR
+cd ..
+EDITDIR=$(pwd)
 cd $EDIT_DIR
-cp -r default_ttZ/ "${PREFIX}"/
+cp -r "${DEFAULTDIR}" "${PREFIX}"/
 
 # Adding prefix to all files
 cd $PREFIX
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
+# MAKE SURE THIS DIRECTORY EXISTS     #
+# BEFORE CONTINUING!                  #
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
 for file in *; do
     mv "$file" "${PREFIX}_${file}"
 done
@@ -53,10 +56,10 @@ done
 
 
 # Running gridpack_generation
-cd $BASE_DIR
+cd $BASEDIR
 bash gridpack_generation.sh $PREFIX addons/models/SMEFTsim_topU3l_MwScheme_UFO/"${PREFIX}"/
 
 # Cleaning output
 # Added -p to mkdir to prevent errors if dir exists
-mkdir -p $outdir/$PREFIX 
-mv $PREFIX* $outdir/$PREFIX
+mkdir -p $OUTDIR/$PREFIX 
+mv $PREFIX* $OUTDIR/$PREFIX
