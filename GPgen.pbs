@@ -17,7 +17,7 @@ PREFIX="${SAFE_WC}_${SAFE_VAL}_ttZ"
 cd $DEFAULTDIR
 cd ..
 EDITDIR=$(pwd)
-cd $EDIT_DIR
+cd $EDITDIR
 cp -r "${DEFAULTDIR}" "${PREFIX}"/
 
 # Adding prefix to all files
